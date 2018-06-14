@@ -17,11 +17,7 @@ import com.kakao.auth.Session;
 import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.kakao.util.exception.KakaoException;
 
-import host.exp.exponent.ActivityResultListener;
-import host.exp.expoview.Exponent;
-
-
-public class RNKaKaoSigninModule extends ReactContextBaseJavaModule implements ActivityResultListener {
+public class RNKaKaoSigninModule extends ReactContextBaseJavaModule {
 
   private static final int KAKAO_LOGIN_REQUEST = Session.AUTHORIZATION_CODE_REQUEST;
   private final ReactApplicationContext reactContext;
@@ -32,7 +28,7 @@ public class RNKaKaoSigninModule extends ReactContextBaseJavaModule implements A
   public RNKaKaoSigninModule(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactContext = reactContext;
-    Exponent.getInstance().addActivityResultListener(this);
+    reactContext.addActivityEventListener(mActivityEventListener);
     this.mKakaoSignInManager = new KakaoSignInManager(reactContext);
   }
 
@@ -90,14 +86,15 @@ public class RNKaKaoSigninModule extends ReactContextBaseJavaModule implements A
     }
   }
 
-  @Override
-  public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-    if (requestCode == KAKAO_LOGIN_REQUEST) {
-      if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
-        return;
+  private final ActivityEventListener mActivityEventListener = new BaseActivityEventListener() {
+    @Override
+    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent intent) {
+      if (requestCode == KAKAO_LOGIN_REQUEST) {
+        if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, intent)) {
+          return;
+        }
+        super.onActivityResult(activity, requestCode, resultCode, intent);
       }
-      //super.onActivityResult(activity, requestCode, resultCode, intent);
     }
   }
-
 }

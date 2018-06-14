@@ -23,9 +23,6 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
-        manifestPlaceholders = [
-                appAuthRedirectScheme: 'host.exp.exponent'
-        ]
     }
     lintOptions {
         abortOnError false
@@ -39,16 +36,7 @@ repositories {
 
 dependencies {
     compile 'com.facebook.react:react-native:+'
-    // 카카오 로그인 sdk를 사용하기 위해 필요.
     compile 'com.kakao.sdk:usermgmt:1.1.36'
     compile 'com.kakao.sdk:kakaolink:1.1.36'
-    compile('host.exp.exponent:expoview:25.0.0@aar') {
-//        exclude group: 'com.facebook.android', module: 'facebook-android-sdk'
-//        exclude group: 'com.facebook.android', module: 'audience-network-sdk'
-//        exclude group: 'io.nlopez.smartlocation', module: 'library'
-//        exclude group: 'com.airbnb.android', module: 'lottie'
-        exclude group: 'com.crashlytics.sdk.android', module: 'crashlytics'
-        transitive = true
-    }
 }
 
