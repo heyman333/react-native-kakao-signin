@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09F518E920D1FD9B000A5D0E /* KakaoCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F518E820D1FD9B000A5D0E /* KakaoCommon.framework */; };
 		B3E7B58A1CC2AC0600A0062D /* RNKaKaoSignin.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNKaKaoSignin.m */; };
-		E15C2BE51EA75AD60005B888 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15C2BE41EA75AD60005B888 /* KakaoOpenSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,10 +24,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		09F518E820D1FD9B000A5D0E /* KakaoCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoCommon.framework; sourceTree = "<group>"; };
 		134814201AA4EA6300B7C361 /* libRNKaKaoSignin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNKaKaoSignin.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E7B5881CC2AC0600A0062D /* RNKaKaoSignin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNKaKaoSignin.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNKaKaoSignin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNKaKaoSignin.m; sourceTree = "<group>"; };
-		E15C2BE41EA75AD60005B888 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E15C2BE51EA75AD60005B888 /* KakaoOpenSDK.framework in Frameworks */,
+				09F518E920D1FD9B000A5D0E /* KakaoCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +63,7 @@
 		E15C2C051EA762490005B888 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E15C2BE41EA75AD60005B888 /* KakaoOpenSDK.framework */,
+				09F518E820D1FD9B000A5D0E /* KakaoCommon.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
