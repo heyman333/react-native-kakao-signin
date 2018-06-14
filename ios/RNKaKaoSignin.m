@@ -20,14 +20,14 @@ RCT_REMAP_METHOD(signIn,
           // signIn success
           NSString* token = session.accessToken;
           resolve(token);
-          
+
         } else {
           // failed
           reject(@"signIn failed.", @"", error);
         }
-      }];
+      } authParams:(NSDictionary *) nil authType:(KOAuthType) KOAuthTypeTalk];
     });
-  
+
 }
 
 RCT_REMAP_METHOD(signOut,
@@ -36,7 +36,7 @@ RCT_REMAP_METHOD(signOut,
 {
     KOSession *session = [KOSession sharedSession];
     [session close];
-    
+
     [session logoutAndCloseWithCompletionHandler:^(BOOL success, NSError *error) {
         if (success) {
             // signOut success.
@@ -49,4 +49,4 @@ RCT_REMAP_METHOD(signOut,
 }
 
 @end
-  
+
