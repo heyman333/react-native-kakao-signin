@@ -96,5 +96,5 @@ public class RNKaKaoSigninModule extends ReactContextBaseJavaModule {
         super.onActivityResult(activity, requestCode, resultCode, intent);
       }
     }
-  }
+  };
 }
