@@ -95,13 +95,11 @@ class KakaoSignInManager {
     protected void startLogin() {
         init();
 
-        // 카톡 또는 카스가 존재하면 옵션을 보여주고, 존재하지 않으면 바로 직접 로그인창.
-        final List<AuthType> authTypes = getAuthTypes();
-        if(authTypes.size() == 1){
-            Session.getCurrentSession().open(authTypes.get(0), reactContext.getCurrentActivity());
-        } else {
-            startLoginWithAuthTypes(authTypes);
-        }
+        startLoginWithKakaoTalk();
+    }
+
+    private void startLoginWithKakaoTalk() {
+        Session.getCurrentSession().open(AuthType.KAKAO_TALK, reactContext.getCurrentActivity());
     }
 
     private List<AuthType> getAuthTypes() {
